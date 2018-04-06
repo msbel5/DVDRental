@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using LetsEncrypt.Owin;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(DVDRental.Startup))]
@@ -8,7 +9,9 @@ namespace DVDRental
     {
         public void Configuration(IAppBuilder app)
         {
+            app.UseAcmeChallenge();
             ConfigureAuth(app);
+            
         }
     }
 }
